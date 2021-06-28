@@ -1,0 +1,28 @@
+{
+  "name": "tem",
+  "version": "1.0.0",
+  "description": "TEM: TExtarea iMproved",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "xo && jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiddharthShyniben/TEM.git"
+  },
+  "keywords": [
+    "dom",
+    "textarea",
+    "improved"
+  ],
+  "author": "SiddharthShyniben <siddharth.muscat@gmail.com> (https://github.com/SiddharthShyniben)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/SiddharthShyniben/TEM/issues"
+  },
+  "homepage": "https://github.com/SiddharthShyniben/TEM#readme",
+  "devDependencies": {
+    "rollup": "^2.47.0",
+    "xo": "^0.40.1"
+  }
+}
