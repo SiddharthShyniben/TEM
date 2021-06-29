@@ -18,7 +18,7 @@ export function enhance(textarea, options = defaultOptions) {
 		autoResizeTextarea(textarea);
 	}
 
-	if (options.wordWrap) {
+	if (!options.wordWrap) {
 		enableWordWrap(textarea);
 	}
 
