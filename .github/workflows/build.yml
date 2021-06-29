@@ -1,0 +1,17 @@
+name: 'Build'
+on: [push, pull_request]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "[Info] job started by ${{github.event_name}}"
+      - name: Checkout files
+        uses: @action/checkout@v2
+      - run: echo "[Info] Checkout complete"
+      - name: Setup node
+        uses: @action/setup-node@v2
+      - run: echo "[Info] Node setup complete"
+      - name: Build
+        run: npm run build
+      - run: echo "[Info] Job complete. Status ${{ job.status }}"
