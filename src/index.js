@@ -3,14 +3,14 @@ import {merge} from './deep-merge.js';
 import {defaultOptions} from './default-options.js';
 import {enableWordWrap} from './word-wrap.js';
 
-export function highlightAll(options = defaultOptions) {
+export function enhance(options = defaultOptions) {
 	for (const element of document
 		.querySelectorAll('textarea')) {
-		highlight(element, options);
+		enhance(element, options);
 	}
 }
 
-export function highlight(textarea, options = defaultOptions) {
+export function enhance(textarea, options = defaultOptions) {
 	options = merge(defaultOptions, options);
 
 	if (options.autoResizeTextarea) {
