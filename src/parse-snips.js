@@ -1,11 +1,9 @@
-export function parseDoubleChar(doubleChars, event, element) {
-	const doubleChar = doubleChars[event.key];
+export function parseSnippet(snippets, event, element) {
+	const snippet = snippets[event.key];
 
-	if (doubleChar instanceof Function) {
-		return doubleChar(element);
+	if (snippet instanceof Function) {
+		return snippet(element);
 	}
 
-	return doubleChar ?? {value: event.key, pos: 1};
+	return snippet ?? {value: event.key, pos: 1};
 }
-
-export function parseSnippet(snippets, key) {}
