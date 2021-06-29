@@ -27,7 +27,7 @@ export function enhance(textarea, options = defaultOptions) {
 		if (options.useDoubleChars) {
 			if (options.doubleChars[event.key]) {
 				event.preventDefault();
-				const snippet = parseDoubleChar(options.useDoubleChars, event, textarea);
+				const snippet = parseDoubleChar(options.doubleChars, event, textarea);
 				textarea.value =
 					textarea.value.slice(0, pos) +
 					snippet.value +
