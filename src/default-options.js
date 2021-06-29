@@ -25,11 +25,28 @@ export const defaultOptions = {
 		'(': {value: '()', pos: 1},
 		'{': {value: '{}', pos: 1},
 		'[': {value: '[]', pos: 1},
-		'\'': {value: '\'\'', pos: 1},
+		'\'': element => {
+			// ' ' to force regex to thinking that there is a space
+			const prevChar = element.value.charAt(element.selectionStart - 1) || ' ';
+			console.log(prevChar);
+			return {
+				value: prevChar.search(/\s/gim) ? '\'' : '\'\'',
+				pos: 1
+			}
+		},
 		'"': {value: '""', pos: 1},
 		'“': {value: '“”', pos: 1},
 		'`': {value: '``', pos: 1},
-		'‘': {value: '‘’', pos: 1},
+		// '‘': {value: '‘’', pos: 1},
+		'‘': element => {
+			// ' ' to force regex to thinking that there is a space
+			const prevChar = element.value.charAt(element.selectionStart - 1) || ' ';
+			console.log(prevChar);
+			return {
+				value: prevChar.search(/\s/gim) ? '’' : '‘’',
+				pos: 1
+			}
+		},
 		'«': {value: '«»', pos: 1},
 		'「': {value: '「」', pos: 1},
 
