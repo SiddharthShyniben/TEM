@@ -41,7 +41,7 @@ TEM can be used
 
 	to load the latest version of TEM. You can change the URL to include a specific version if you like.
 
-	The full documentation is [here](#documentation)
+	The full documentation is [here](./API-REFERENCE)
 
 ## Contributing to TEM
 
