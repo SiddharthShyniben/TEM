@@ -3,6 +3,7 @@ export const defaultOptions = {
 	autoResizeTextarea: true,
 	useSnippets: true,
 	useDoubleChars: true,
+	wordWrap: false,
 	snippets: {
 		'1#': '# ',
 		'2#': '## ',
