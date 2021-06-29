@@ -1,6 +1,7 @@
 import {autoResizeTextarea} from './auto-resize.js';
 import {merge} from './deep-merge.js';
 import {defaultOptions} from './default-options.js';
+import {parseDoubleChar} from './parse-snips';
 import {enableWordWrap} from './word-wrap.js';
 
 export function enhanceAll(options = defaultOptions) {
