@@ -4,8 +4,7 @@ export function parseDoubleChar(doubleChars, event, element) {
 	// if (doubleChar instanceof Function) {
 	// 	return doubleChar(element)
 	// }
-	return doubleChar;
-
+	return doubleChar ?? {value: event.key, pos: 1};
 }
 
 export function parseSnippet(snippets, key) {}
