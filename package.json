@@ -5,7 +5,7 @@
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "rollup --config",
-		"lint": "xo --fix"
+		"lint": "xo --fix --env=browser"
 	},
 	"repository": {
 		"type": "git",
