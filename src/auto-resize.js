@@ -1,10 +1,10 @@
 export function autoResizeTextarea(textarea) {
 	textarea.addEventListener('input', resize);
 	textarea.addEventListener('keydown', resize);
-	resize(textarea);
+	resize.bind(textarea)();
 }
 
-function resize(textarea) {
-	(textarea || this).style.height = '24px';
-	(textarea || this).style.height = (textarea || this).scrollHeight + 'px';
+function resize() {
+	this.style.height = '24px';
+	this.style.height = this.scrollHeight + 'px';
 }
