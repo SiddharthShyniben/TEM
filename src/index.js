@@ -31,7 +31,7 @@ export function enhance(textarea, options = defaultOptions) {
 				textarea.value =
 					textarea.value.slice(0, pos) +
 					snippet.value +
-					textarea.value.slice(editing.selectionEnd);
+					textarea.value.slice(textarea.selectionEnd);
 
 				textarea.selectionStart = textarea.selectionEnd = pos + snippet.pos;
 			}
