@@ -1,6 +1,8 @@
 export const defaultOptions = {
 	useTabToIndent: true,
 	autoResizeTextarea: true,
+	useSnippets: true,
+	useDoubleChars: true,
 	snippets: {
 		'1#': '# ',
 		'2#': '## ',
