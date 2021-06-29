@@ -27,12 +27,12 @@ export const defaultOptions = {
 		'[': {value: '[]', pos: 1},
 		'\'': element => {
 			// ' ' to force regex to thinking that there is a space
-			const prevChar = element.value.charAt(element.selectionStart - 1) || ' ';
-			console.log(prevChar);
+			const previousChar = element.value.charAt(element.selectionStart - 1) || ' ';
+			console.log(previousChar);
 			return {
-				value: prevChar.search(/\s/gim) ? '\'' : '\'\'',
+				value: previousChar.search(/\s/gim) ? '\'' : '\'\'',
 				pos: 1
-			}
+			};
 		},
 		'"': {value: '""', pos: 1},
 		'“': {value: '“”', pos: 1},
@@ -40,12 +40,12 @@ export const defaultOptions = {
 		// '‘': {value: '‘’', pos: 1},
 		'‘': element => {
 			// ' ' to force regex to thinking that there is a space
-			const prevChar = element.value.charAt(element.selectionStart - 1) || ' ';
-			console.log(prevChar);
+			const previousChar = element.value.charAt(element.selectionStart - 1) || ' ';
+			console.log(previousChar);
 			return {
-				value: prevChar.search(/\s/gim) ? '’' : '‘’',
+				value: previousChar.search(/\s/gim) ? '’' : '‘’',
 				pos: 1
-			}
+			};
 		},
 		'«': {value: '«»', pos: 1},
 		'「': {value: '「」', pos: 1},
