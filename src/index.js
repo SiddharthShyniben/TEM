@@ -3,7 +3,7 @@ import {merge} from './deep-merge.js';
 import {defaultOptions} from './default-options.js';
 import {enableWordWrap} from './word-wrap.js';
 
-export function enhance(options = defaultOptions) {
+export function enhanceAll(options = defaultOptions) {
 	for (const element of document
 		.querySelectorAll('textarea')) {
 		enhance(element, options);
