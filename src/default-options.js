@@ -1,5 +1,5 @@
 export const defaultOptions = {
-	useTabToIndent: true,
+	useTabToIndent: false,
 	autoResizeTextarea: true,
 	useSnippets: true,
 	useDoubleChars: true,
