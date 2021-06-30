@@ -5,9 +5,6 @@ jobs:
     Build:
         runs-on: ubuntu-latest
         steps:
-        - name: Checkout files
-          uses: @action/checkout@v2
-        - name: Setup node
-          uses: @action/setup-node@v2
-        - name: Build
-          run: npm run build
+        - uses: @action/checkout@v2
+        - uses: @action/setup-node@v2
+        - run: npm run build
