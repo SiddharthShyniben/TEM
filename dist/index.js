@@ -25,7 +25,7 @@ var TEM = (function (exports) {
 	}
 
 	const defaultOptions = {
-		useTabToIndent: true,
+		useTabToIndent: false,
 		autoResizeTextarea: true,
 		useSnippets: true,
 		useDoubleChars: true,
@@ -53,12 +53,12 @@ var TEM = (function (exports) {
 			'[': {value: '[]', pos: 1},
 			'\'': element => {
 				// ' ' to force regex to thinking that there is a space
-				const prevChar = element.value.charAt(element.selectionStart - 1) || ' ';
-				console.log(prevChar);
+				const previousChar = element.value.charAt(element.selectionStart - 1) || ' ';
+				console.log(previousChar);
 				return {
-					value: prevChar.search(/\s/gim) ? '\'' : '\'\'',
+					value: previousChar.search(/\s/gim) ? '\'' : '\'\'',
 					pos: 1
-				}
+				};
 			},
 			'"': {value: '""', pos: 1},
 			'“': {value: '“”', pos: 1},
@@ -66,12 +66,12 @@ var TEM = (function (exports) {
 			// '‘': {value: '‘’', pos: 1},
 			'‘': element => {
 				// ' ' to force regex to thinking that there is a space
-				const prevChar = element.value.charAt(element.selectionStart - 1) || ' ';
-				console.log(prevChar);
+				const previousChar = element.value.charAt(element.selectionStart - 1) || ' ';
+				console.log(previousChar);
 				return {
-					value: prevChar.search(/\s/gim) ? '’' : '‘’',
+					value: previousChar.search(/\s/gim) ? '’' : '‘’',
 					pos: 1
-				}
+				};
 			},
 			'«': {value: '«»', pos: 1},
 			'「': {value: '「」', pos: 1},
@@ -86,13 +86,14 @@ var TEM = (function (exports) {
 		}
 	};
 
-	function parseDoubleChar(doubleChars, event, element) {
-		let doubleChar = doubleChars[event.key];
+	function parseSnippet(snippets, event, element) {
+		const snippet = snippets[event.key];
 
-		if (doubleChar instanceof Function) {
-			return doubleChar(element)
+		if (snippet instanceof Function) {
+			return snippet(element);
 		}
-		return doubleChar ?? {value: event.key, pos: 1};
+
+		return snippet ?? {value: event.key, pos: 1};
 	}
 
 	function enableWordWrap(textarea) {
@@ -123,17 +124,16 @@ var TEM = (function (exports) {
 
 		textarea.addEventListener('keydown', event => {
 			const pos = textarea.selectionStart;
-			if (options.useDoubleChars) {
-				if (options.doubleChars[event.key]) {
-					event.preventDefault();
-					const snippet = parseDoubleChar(options.doubleChars, event, textarea);
-					textarea.value =
+			if (options.useDoubleChars && options.doubleChars[event.key]) {
+				event.preventDefault();
+				const snippet = parseSnippet(options.doubleChars, event, textarea);
+				textarea.value =
 						textarea.value.slice(0, pos) +
 						snippet.value +
 						textarea.value.slice(textarea.selectionEnd);
 
-					textarea.selectionStart = textarea.selectionEnd = pos + snippet.pos;
-				}
+				textarea.selectionStart = pos + snippet.pos;
+				textarea.selectionEnd = textarea.selectionStart;
 			}
 		});
 	}
