@@ -32,7 +32,8 @@ export function enhance(textarea, options = defaultOptions) {
 					snippet.value +
 					textarea.value.slice(textarea.selectionEnd);
 
-			textarea.selectionStart = textarea.selectionEnd = pos + snippet.pos;
+			textarea.selectionStart = pos + snippet.pos;
+			textarea.selectionEnd = textarea.selectionStart;
 		}
 	});
 }
